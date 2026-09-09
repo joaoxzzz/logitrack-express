@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package logitrack;
+
+service LogiTrackGateway {
+  rpc RegisterTruckArrival (TruckArrivalRequest) returns (TruckArrivalResponse);
+}
+
+message TruckArrivalRequest {
+  string truck_id = 1;
+  string plate = 2;
+  string carrier = 3;
+  double latitude = 4;
+  double longitude = 5;
+  string requested_dock = 6;
+}
+
+message TruckArrivalResponse {
+  string event_id = 1;
+  string status = 2;
+  string message = 3;
+}
